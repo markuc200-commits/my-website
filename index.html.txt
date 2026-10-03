@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدليات أبو الفضل | Abouelfadl Pharmacies</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            dark: '#0f172a',
+                            accent: '#0ea5e9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Cairo & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-20 md:pb-0">
+
+    <!-- Top Header & Navbar -->
+    <header class="sticky top-0 z-40 bg-white shadow-sm border-b border-slate-100">
+        <div class="bg-medical-700 text-white text-xs py-1.5 px-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5"></i> الخط الساخن: 19999</span>
+                    <span class="hidden sm:inline flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> خدمة توصيل 24 ساعة</span>
+                </div>
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <button onclick="switchTab('admin')" class="bg-medical-600 hover:bg-medical-500 text-white px-2.5 py-0.5 rounded text-xs font-semibold transition flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> لوحة الإدارة
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="w-11 h-11 bg-medical-500 rounded-2xl flex items-center justify-center text-white shadow-md shadow-medical-500/20">
+                    <i data-lucide="cross" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl text-slate-900 leading-tight">صيدليات أبو الفضل</h1>
+                    <p class="text-xs text-slate-500 font-medium">Abouelfadl Pharmacies</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-6 space-x-reverse font-medium text-sm text-slate-600">
+                <button onclick="switchTab('home')" class="nav-link text-medical-600 font-bold transition hover:text-medical-600">الرئيسية</button>
+                <button onclick="switchTab('products')" class="nav-link transition hover:text-medical-600">المنتجات</button>
+                <button onclick="switchTab('order')" class="nav-link transition hover:text-medical-600">اطلب دواءك</button>
+                <button onclick="switchTab('branches')" class="nav-link transition hover:text-medical-600">الفروع</button>
+                <button onclick="switchTab('about')" class="nav-link transition hover:text-medical-600">من نحن</button>
+                <button onclick="switchTab('contact')" class="nav-link transition hover:text-medical-600">تواصل معنا</button>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button onclick="switchTab('order')" class="hidden sm:flex items-center gap-2 bg-medical-500 hover:bg-medical-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md shadow-medical-500/20 transition">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>سريعة الروشتة</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
+
+        <!-- HOME TAB -->
+        <div id="tab-home" class="tab-content space-y-8">
+            <!-- Hero Section -->
+            <div class="relative bg-gradient-to-br from-medical-50 via-teal-50 to-emerald-50 rounded-3xl p-6 md:p-12 overflow-hidden border border-medical-100 shadow-sm">
+                <div class="absolute -left-10 -bottom-10 w-64 h-64 bg-medical-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-2xl relative z-10 space-y-4">
+                    <span class="bg-medical-100 text-medical-700 text-xs font-bold px-3 py-1.5 rounded-full inline-flex items-center gap-1.5">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> صحتك أولويتنا دائماً
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        رعاية صحية متكاملة بين يديك على مدار الساعة
+                    </h2>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                        اطلب أدويدك، مستحضرات التجميل، والعناية الشخصية بكل سهولة. ارفع روشتتك الطبية وسنقوم بتوصيل طلباتك حتى باب منزلك بسرعة وأمان.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button onclick="switchTab('products')" class="bg-medical-600 hover:bg-medical-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg shadow-medical-600/25 transition flex items-center gap-2">
+                            <i data-lucide="pill" class="w-5 h-5"></i> تصفح المنتجات
+                        </button>
+                        <button onclick="switchTab('order')" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold px-6 py-3 rounded-2xl transition flex items-center gap-2 shadow-sm">
+                            <i data-lucide="file-text" class="w-5 h-5 text-medical-600"></i> ارفع الروشتة الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="switchTab('products')" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 bg-medical-50 text-medical-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-medical-600 group-hover:text-white transition">
+                        <i data-lucide="pill" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">أدوية وعلاجات</h3>
+                    <p class="text-xs text-slate-500">أقراص، مسكنات، وفيتامينات</p>
+                </div>
+                <div onclick="switchTab('products'); filterCategory('العناية بالبشرة')" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-pink-600 group-hover:text-white transition">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">العناية بالبشرة</h3>
+                    <p class="text-xs text-slate-500">مرطبات، واقي شمس، غسول</p>
+                </div>
+                <div onclick="switchTab('products'); filterCategory('Mother & Baby')" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-sky-600 group-hover:text-white transition">
+                        <i data-lucide="baby" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">الأم والطفل</h3>
+                    <p class="text-xs text-slate-500">حفاضات، حليب، ومستلزمات</p>
+                </div>
+                <div onclick="switchTab('products'); filterCategory('Medical Supplies')" class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center text-center group">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i data-lucide="stethoscope" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-1">أجهزة ومستلزمات</h3>
+                    <p class="text-xs text-slate-500">قياس ضغط وسكر وأقنعة</p>
+                </div>
+            </div>
+
+            <!-- Featured Offers Section -->
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-black text-slate-900">عروض وخصومات مميزة</h3>
+                        <p class="text-xs text-slate-500">وفر أكثر مع باقات وعروض صيدليات أبو الفضل</p>
+                    </div>
+                    <button onclick="switchTab('products')" class="text-medical-600 font-bold text-sm hover:underline flex items-center gap-1">
+                        عرض الكل <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div id="home-offers-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                    <!-- Dynamic Offers injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCTS TAB -->
+        <div id="tab-products" class="tab-content hidden space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900">كتالوج المنتجات</h2>
+                    <p class="text-xs text-slate-500 mt-1">ابحث وتصفح آلاف الأدوية ومنتجات العناية بكل سهولة</p>
+                </div>
+                <!-- Search Box -->
+                <div class="relative w-full md:w-80">
+                    <i data-lucide="search" class="absolute right-3.5 top-3.5 w-5 h-5 text-slate-400"></i>
+                    <input type="text" id="product-search-input" oninput="handleSearch(this.value)" placeholder="ابحث عن دواء، مسكن، فيتامين..." class="w-full pr-11 pl-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-medical-500 focus:bg-white transition">
+                </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar" id="category-pills">
+                <button onclick="filterCategory('الكل')" class="category-btn active px-4 py-2 rounded-xl text-sm font-bold bg-medical-600 text-white whitespace-nowrap shadow-sm transition">الكل</button>
+                <button onclick="filterCategory('أدوية وعلاجات')" class="category-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-50 transition">💊 الأدوية</button>
+                <button onclick="filterCategory('العناية بالبشرة')" class="category-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-50 transition">🧴 العناية بالبشرة</button>
+                <button onclick="filterCategory('Mother & Baby')" class="category-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-50 transition">👶 الأم والطفل</button>
+                <button onclick="filterCategory('Cosmetics')" class="category-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-50 transition">💄 تجميل وعناية</button>
+                <button onclick="filterCategory('Medical Supplies')" class="category-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-50 transition">🩺 مستلزمات طبية</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Products dynamically rendered -->
+            </div>
+        </div>
+
+        <!-- ORDER & PRESCRIPTION TAB -->
+        <div id="tab-order" class="tab-content hidden max-w-2xl mx-auto space-y-6">
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100 space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-14 h-14 bg-medical-50 text-medical-600 rounded-2xl flex items-center justify-center mx-auto shadow-inner">
+                        <i data-lucide="file-spreadsheet" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-900">اطلب من الصيدلية فوراً</h2>
+                    <p class="text-xs md:text-sm text-slate-500">لا حاجة لإنشاء حساب! ارفع روشتتك الطبية أو اكتب طلبك وسنتواصل معك خلال دقائق.</p>
+                </div>
+
+                <form id="order-form" onsubmit="submitOrder(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج أو الأدوية المطلوبة</label>
+                        <input type="text" id="order-product-name" required placeholder="مثال: بانادول إكstra، أويستر، أو اسم الدواء..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-medical-500 focus:bg-white transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">الكمية</label>
+                            <div class="flex items-center">
+                                <button type="button" onclick="adjustQty(-1)" class="w-12 h-11 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-r-xl font-bold text-lg flex items-center justify-center transition">-</button>
+                                <input type="number" id="order-qty" value="1" min="1" class="w-full text-center py-2.5 bg-slate-50 border-y border-slate-200 text-sm font-bold focus:outline-none">
+                                <button type="button" onclick="adjustQty(1)" class="w-12 h-11 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-l-xl font-bold text-lg flex items-center justify-center transition">+</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">رفع الروشتة (اختياري)</label>
+                            <label class="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-slate-50 border border-dashed border-slate-300 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-100 cursor-pointer transition">
+                                <i data-lucide="paperclip" class="w-4 h-4 text-medical-600"></i>
+                                <span id="file-label-text">اختر صورة الروشتة</span>
+                                <input type="file" id="prescription-file" accept="image/*" onchange="handleFileSelect(this)" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل</label>
+                            <input type="text" id="order-customer-name" required placeholder="أدخل اسمك الكريم" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-medical-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف (للتواصل)</label>
+                            <input type="tel" id="order-customer-phone" required placeholder="010xxxxxxxx" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-medical-500 focus:bg-white transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">عنوان التوصيل بالتفصيل</label>
+                        <textarea id="order-customer-address" required rows="2" placeholder="المدينة، الشارع، رقم الحائط، الدور..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-medical-500 focus:bg-white transition"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">طريقة التواصل المفضلة</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                                <input type="radio" name="contact-method" value="WhatsApp" checked class="text-medical-600 focus:ring-medical-500">
+                                <span class="text-sm font-semibold text-slate-700 flex items-center gap-1.5"><i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i> واتساب</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                                <input type="radio" name="contact-method" value="Phone Call" class="text-medical-600 focus:ring-medical-500">
+                                <span class="text-sm font-semibold text-slate-700 flex items-center gap-1.5"><i data-lucide="phone-call" class="w-4 h-4 text-sky-600"></i> مكالمة هاتفية</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-medical-600 hover:bg-medical-700 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-medical-600/25 transition flex items-center justify-center gap-2 text-base">
+                        <i data-lucide="send" class="w-5 h-5"></i> 🟢 إرسال الطلب الآن
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- B
